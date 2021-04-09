@@ -5,10 +5,10 @@ import { UsuarioComponent } from './pages/usuario/usuario.component';
 import { ListComponent } from './components/list/list.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { FormComponent } from './components/form/form.component';
-import { ItemListComponent } from './components/item-list/item-list.component';
+
 
 @NgModule({
-  declarations: [UsuarioComponent, ListComponent, UsuariosComponent, FormComponent, ItemListComponent],
+  declarations: [UsuarioComponent, ListComponent, UsuariosComponent, FormComponent],
   imports: [CommonModule, UsuarioRoutingModule],
 })
 export class UsuarioModule {}

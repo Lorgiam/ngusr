@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Usuario } from '../../../../shared/models/usuario.model';
+import { Store } from '@ngrx/store';
+import { AppState } from './../../../../app.reducer';
 
 @Component({
   selector: 'app-list',
@@ -8,9 +10,13 @@ import { Usuario } from '../../../../shared/models/usuario.model';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  usuarios$: Observable<Usuario[]> = new Observable();
+  usuarios: Usuario[] = [];
 
-  constructor() {}
+  constructor(private _store: Store<AppState>) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._store.select('usuarios').subscribe((usuarios) => {
+      this.usuarios = [...usuarios.list];
+    });
+  }
 }

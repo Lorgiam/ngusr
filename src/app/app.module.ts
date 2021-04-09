@@ -7,14 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { appReducers, metaReducers } from './app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { FloatingButtonComponent } from './shared/components/floating-button/floating-button.component';
+import { TooltipModule } from 'ng2-tooltip-directive';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FloatingButtonComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
+    TooltipModule,
     StoreModule.forRoot(appReducers, { metaReducers }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

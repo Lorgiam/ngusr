@@ -17,6 +17,10 @@ const _usuarioReducer = createReducer(
   on(usuarioActions.listarUsuarios, (state) => ({
     ...state,
   })),
+  on(usuarioActions.añadirUsuarios, (state, { list }) => ({
+    ...state,
+    list: [...list],
+  })),
   on(usuarioActions.añadirUsuario, (state, { usuario }) => ({
     ...state,
     list: [...state.list, usuario],
