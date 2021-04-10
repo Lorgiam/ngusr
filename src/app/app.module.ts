@@ -7,16 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { appReducers, metaReducers } from './app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { FloatingButtonComponent } from './shared/components/floating-button/floating-button.component';
 import { TooltipModule } from 'ng2-tooltip-directive';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent, FloatingButtonComponent],
+  declarations: [AppComponent],
   imports: [
-    BrowserModule,
+  BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
+    SharedModule,
     TooltipModule,
     StoreModule.forRoot(appReducers, { metaReducers }),
     StoreDevtoolsModule.instrument({

@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: 'list',
     component: UsuariosComponent,
-    data: { animation: 'isRight' },
+    data: { animation: 'isLeft' },
   },
   {
     path: 'form',

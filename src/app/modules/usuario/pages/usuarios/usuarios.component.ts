@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { slider, stepper } from '../../../../../../route-animations';
-import { UserService } from './../../../../core/services/user.service';
+import { UsuarioService } from '../../../../core/services/usuario.service';
 import { AppState } from './../../../../app.reducer';
 import * as usuarioActions from '../../../../store/actions/usuario.actions';
 @Component({
@@ -12,12 +12,12 @@ import * as usuarioActions from '../../../../store/actions/usuario.actions';
 })
 export class UsuariosComponent implements OnInit {
   constructor(
-    private _userService: UserService,
+    private _usuarioService: UsuarioService,
     private _store: Store<AppState>
   ) {}
 
   ngOnInit(): void {
-    this._userService
+    this._usuarioService
       .findAll('usuario')
       .toPromise()
       .then((res) => {

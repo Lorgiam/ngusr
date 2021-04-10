@@ -7,11 +7,11 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { tap, catchError } from 'rxjs/operators';
 import { throwError as observableThrowError } from 'rxjs';
-import { Usuario } from './../../shared/models/usuario.model';
+import { Usuario } from '../../shared/models/usuario.model';
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
+export class UsuarioService {
   private headers: any;
 
   constructor(public http: HttpClient) {
@@ -34,9 +34,20 @@ export class UserService {
       );
   }
 
-  getBy(module: string, id: any) {
+  findById(module: string, id: any) {
     this.create_headers();
     const url = `${environment.API_URL}/${module}/findById/${id}`;
+    return this.http
+      .get<Usuario>(url, { headers: this.headers })
+      .pipe(
+        tap((data) => data),
+        catchError(this.handleError)
+      );
+  }
+
+  validate(module: string, query: any, param: any,param2:any) {
+    this.create_headers();
+    const url = `${environment.API_URL}/${module}/validate${query}/${param}/${param2}`;
     return this.http
       .get<Usuario>(url, { headers: this.headers })
       .pipe(
@@ -66,10 +77,10 @@ export class UserService {
       );
   }
 
-  update(module: string, object: any) {
+  update(module: string, object: any,id:any) {
     console.log(`${module} enviado`, object);
     this.create_headers();
-    const url = `${environment.API_URL}/usuario/update`;
+    const url = `${environment.API_URL}/usuario/update/${id}`;
     return this.http
       .put<Usuario>(url, object, { headers: this.headers })
       .pipe(

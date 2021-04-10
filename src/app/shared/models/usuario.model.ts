@@ -1,8 +1,9 @@
 export interface Usuario{
-  _id?:String
+  id?:String
   nombres?:String,
   apellidos?:String,
   cedula?:Number,
   correo?:String,
-  telefono?:Number
+  telefono?:Number,
+  genero?:String
 }

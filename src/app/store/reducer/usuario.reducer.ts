@@ -3,7 +3,7 @@ import * as usuarioActions from '../actions/usuario.actions';
 import { Usuario } from '../../shared/models/usuario.model';
 
 export interface UsuarioState {
-  list: any[];
+  list: Usuario[];
   select?: Usuario;
 }
 
@@ -25,10 +25,7 @@ const _usuarioReducer = createReducer(
     ...state,
     list: [...state.list, usuario],
   })),
-  on(usuarioActions.seleccionarUsuario, (state, { id }) => ({
-    ...state,
-    select: state.list.find((el) => el.id == id),
-  })),
+
   on(usuarioActions.eliminarUsuario, (state, { id }) => ({
     ...state,
     list: state.list.filter((x) => x.id != id),

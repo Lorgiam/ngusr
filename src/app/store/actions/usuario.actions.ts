@@ -10,10 +10,6 @@ export const añadirUsuario = createAction(
   '[USUARIOS] Añadir Usuario',
   props<{ usuario: Usuario }>()
 );
-export const seleccionarUsuario = createAction(
-  '[USUARIOS] Seleccionar Usuario',
-  props<{ id: String }>()
-);
 export const modificarListaUsuarios = createAction(
   '[USUARIOS] Modificar Lista Usuarios',
   props<{ id: String; usuario: Usuario }>()
