@@ -2,10 +2,10 @@
 
 In This Project it was used
 
-NgRx
-TailwindCSS
-MetaReducers
-CoreModuleSingleton
+NgRx,
+TailwindCSS,
+MetaReducers,
+CoreModuleSingleton,
 ...
 
 
